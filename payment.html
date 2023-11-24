@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ... (your head section) ... -->
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .payment-options {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .payment-options h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .payment-options label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .payment-details {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    .payment-details h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .payment-details-section {
+      margin-bottom: 10px;
+    }
+
+    .payment-details label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .payment-details input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    #placeOrderButton {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #placeOrderButton:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- ... (your HTML content) ... -->
+
+  <div class="payment-options">
+    <h3>Select Payment Method:</h3>
+    <label>
+      <input type="radio" name="paymentMethod" value="paytm"> Paytm
+    </label>
+    <label>
+      <input type="radio" name="paymentMethod" value="upi"> UPI
+    </label>
+    <label>
+      <input type="radio" name="paymentMethod" value="creditCard"> Credit Card
+    </label>
+    <label>
+      <input type="radio" name="paymentMethod" value="debitCard"> Debit Card
+    </label>
+  </div>
+
+  <div class="payment-details">
+    <h3>Payment Details:</h3>
+    <div id="paytmDetails" class="payment-details-section">
+      <!-- Paytm specific details -->
+      <label for="paytmMobile">Mobile Number:</label>
+      <input type="text" id="paytmMobile">
+    </div>
+    <div id="upiDetails" class="payment-details-section">
+      <!-- UPI specific details -->
+      <label for="upiID">UPI ID:</label>
+      <input type="text" id="upiID">
+    </div>
+    <div id="cardDetails" class="payment-details-section">
+      <!-- Card payment specific details -->
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber">
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv">
+    </div>
+  </div>
+
+  <button id="placeOrderButton">Place Order</button>
+
+  <script>
+    // JavaScript code to handle the "Place Order" button click event
+    const placeOrderButton = document.getElementById("placeOrderButton");
+
+    placeOrderButton.addEventListener("click", () => {
+      const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+
+      if (!selectedPaymentMethod) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      const paymentMethod = selectedPaymentMethod.value;
+
+      // Handle payment method-specific logic here
+      switch (paymentMethod) {
+        case "paytm":
+          const paytmMobile = document.getElementById("paytmMobile").value;
+          // Handle Paytm payment logic here
+          console.log(`Paying via Paytm with Mobile Number: ${paytmMobile}`);
+          break;
+        case "upi":
+          const upiID = document.getElementById("upiID").value;
+          // Handle UPI payment logic here
+          console.log(`Paying via UPI with UPI ID: ${upiID}`);
+          break;
+        case "creditCard":
+        case "debitCard":
+          const cardNumber = document.getElementById("cardNumber").value;
+          const cvv = document.getElementById("cvv").value;
+          // Handle credit/debit card payment logic here
+          console.log(`Paying via Card with Card Number: ${cardNumber}, CVV: ${cvv}`);
+          break;
+        default:
+          alert("Invalid payment method.");
+          break;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <section id="header">
+        <a href="#"
+          > <img src="img/logo2.webp" class="logo" alt="" style="width: 250px;" />
+        </a>
+    
+        <div>
+          <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop2.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a class="active" href="signup.html">SignUp</a></li>
+          </ul>
+        </div>
+      </section>
+
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+        
+            <input type="checkbox" value="show-pass" onclick="showps()" id="show" style="margin-left: -275px;">
+            <label for="Show" style="margin-top: -35PX; margin-left: 30px;margin-bottom: 20px;">Show Password</label>
+            <!-- <input type="checkbox" value="show-pass" onclick="show()"><b>show password</b><br><br/> -->
+            <!-- <input type="submit" value="submit"/> -->
+            
+            <button type="submit" onclick="submit()"><a href="index.html">Sign Up</a></button>
+        </form>
+    </div>
+<script src="./signup.js"></script>
+</body>
+</html>

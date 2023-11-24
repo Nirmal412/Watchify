@@ -1,0 +1,179 @@
+/* CSS: login.css */
+
+/* Reset default margin and padding for the entire document */
+body, h2, h3, h4, h5, h6, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* font-size: x-large; */
+    margin-top: auto;
+  }
+  h1{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 45px;
+    margin-top: auto;
+    color: black;
+  }
+  
+  body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url(./bg3.webp);
+    background-repeat: no-repeat;
+    background-size: 2500px;
+    background-position: center;
+    }
+  
+  .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background-color: #beaeae;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 70px;
+    height: 500px;
+  }
+  
+  legend {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    overflow: hidden;
+    z-index: 2;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1px solid gray;
+    /* border-color: black; */
+    box-sizing: border-box; /* Add box-sizing */
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.473);
+    
+  }
+  input[type="email"]:focus{
+    background-color:rgb(194, 193, 193);
+    border: 1px solid black;
+  }
+  input[type="email"]:hover{
+    border: 1px solid black;
+  }
+  input[type="password"]:focus{
+    background-color:rgb(194, 193, 193);
+  }
+  .shps{
+    display: flex;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Show password checkbox styling */
+  #show {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  /* Center the "Show Password" text horizontally */
+  label[for="show"] {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .login-form{
+    border-color: black;
+    display: flex;
+  }
+  #show-password-checkbox {
+    margin-bottom: 10px;
+}
+
+#show-password-checkbox + label {
+    margin-left: 5px;
+}
+/* navbar */
+#header{
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 600px 20px 80px;
+  background-color: rgb(180 142 108);
+  box-shadow: 0 5px 15px rgb(97, 151, 212);
+  /* z-index: 999; */
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+#navbar{
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#navbar li{
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+#navbar li a{
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1b1c1c;
+  transition: 0.3s ease;
+}
+#navbar li a:hover,
+#navbar li a.active{
+  color: rgb(4, 86, 108);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: #325353;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}

@@ -1,0 +1,214 @@
+*{
+    color: mediumturquoise;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header{
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 425px 20px 80px;
+    background-color: rgb(180 142 108);
+    box-shadow: 0 5px 15px rgb(97, 151, 212);
+    /* z-index: 999; */
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+#navbar li a{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 600;
+    color: #1b1c1c;
+    transition: 0.3s ease;
+}
+#navbar li a:hover,
+#navbar li a.active{
+    color: rgb(4, 86, 108);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: #325353;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+/* #cart{
+    margin-top: 30px;
+    font-size: 20px;
+} */
+/* Home page */
+#hero{
+    background-image: url(img/bg12.jpg);
+    /* background-image: url(img/businessman-bow.png); */
+    background-color: rgb(176, 191, 205);
+    height: 90vh;
+     width: 100%;
+    background-position: top 65% right 25%;
+    background-repeat: no-repeat;
+    padding: 0px 20px 80px 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#feature .fe-box{
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 10px 10px 34px rgb(85, 173, 233);
+    border: 1px solid black;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+#feature .fe-box:hover{
+    box-shadow: 10px 10px 34px rgb(54, 65, 72);
+}
+#feature .fe-box h6{
+    padding: 9px 8px 6px 8px;
+    line-height: 1px;
+    border-radius: 4px;
+    color: rgb(26, 26, 25);
+    background-color: rgb(187, 187, 195);
+}
+#product1{
+    text-align: center;
+}
+#product1 .pro-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+#product1 .pro{
+    width: 5%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid rgb(14, 13, 13);
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgb(46, 44, 44);
+    margin: 15px 0;
+    transition: 0.3s ease;
+    border-radius: 8px;
+
+    
+}
+#product1 .pro img{
+    width:100px;
+    height: 5opx;
+    border-radius: 20px;
+}
+#product1 .pro:hover{
+    box-shadow: 20px 20px 30px rgb(152, 111, 111);
+}
+#product1 .pro .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#product1 .pro .des span{
+    color: rgb(121, 124, 117);
+}
+#product1 .pro .des h5{
+    padding-top: 7px;
+    color: #222727;
+    font-size: 14px;
+    
+}
+#banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(img/bg7.jpg);
+    width: 100%;
+    height: 66vh;
+    background-size: cover;
+    background-position: center;
+}
+button.normal{
+    
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s ease;
+}
+#banner.section-p1 h4
+{
+    color: rgb(22, 64, 104);
+}
+#banner button:hover{
+    background-color: rgb(45, 59, 59);
+    color: aliceblue;
+    
+}
+#hero h1{
+    font-size: 50px;
+    color: whitesmoke ;
+    animation: roll 10s linear infinite;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+#hero h2{
+    font-size: 50px;
+    color: red;
+    animation: roll 10s linear infinite;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+#hero h4{
+    padding-left: 100px;
+    font-size: 25px;
+    color: yellow;
+    animation: roll 10s linear infinite;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+#hero p{
+    font-size: 25px;
+    color:white;
+    animation: roll 10s linear infinite;
+    white-space: nowrap; 
+    overflow: hidden; 
+}
+
+/* @keyframes roll {
+    0% {
+      transform: translateX(300%);
+    }
+    500% {
+      transform: translateX(-500%);
+    }
+  } */

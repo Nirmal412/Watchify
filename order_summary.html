@@ -1,0 +1,278 @@
+<!-- order_summary.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Summary</title>
+  <style>
+/* order_summary.css */
+
+/* Global Styles */
+body{
+    background-color:rgb(241, 223, 195);
+}
+.nirmal {
+    
+  /* margin-top: 200px; */
+  font-family: Arial, sans-serif;
+  /* background-color: #f5f5f5; */
+  margin: 100px 420px 0px 431px;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 36px;
+  color: #333;
+}
+
+/* Customer Information Styles */
+.customer-info {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.customer-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.customer-details {
+  margin-bottom: 10px;
+}
+
+.customer-details strong {
+  display: block;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Product List Styles */
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.product-item {
+  display: flex;
+  justify-content:stretch;
+  align-items: center;
+/* margin: 20px 420px 0px 431px; */
+  background-color: #9e8c8c;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.product-image {
+  max-width: 80px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+/* Total Bill Styles */
+.total-bill {
+  text-align: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+/* Button Styles */
+.btn-buy {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: #c0392b;
+}
+
+#header{
+    margin-left: -10px;
+    margin-right: -7px;
+    margin-top: -100px;
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 672px 20px 80px;
+  background-color: rgb(180 142 108);
+  box-shadow: 0 5px 15px rgb(97, 151, 212);
+  /* z-index: 999; */
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+#navbar{
+
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#navbar li{
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+#navbar li a{
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1b1c1c;
+  transition: 0.3s ease;
+}
+#navbar li a:hover,
+#navbar li a.active{
+  color: rgb(4, 86, 108);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: #325353;
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+}
+
+
+
+  </style>
+</head>
+<body>
+    
+    <section id="header">
+        <a href="#"
+          > <img src="img/logo2.webp" class="logo" alt="" style="width: 250px;" />
+        </a>
+    
+        <div>
+          <ul id="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop2.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="order_summary.html">My order</a></li>
+            
+            <div>
+              <!-- <li>
+                <a href="cart.html"
+                  ><i class="fa-solid fa-cart-shopping" class="cart" id="cart"></i>
+                  <p id="count"></p></a>
+              </li> -->
+            </div>
+            <!-- <script src="addtocart.js"></script> -->
+          </ul>
+        </div>
+      </section>
+<div class="nirmal">
+  <h2>Order Summary</h2>
+<div class="Customer">
+  <div>
+    <strong>Name:</strong> <span id="customerName"></span>
+  </div><br>
+  <div>
+    <strong>Address:</strong> <span id="customerAddress"></span>
+  </div><br>
+  <div>
+    <strong>Total Bill:</strong> Rs. <span id="totalBill"></span>
+  </div><br>
+  <div class="product-list"></div>
+  <p>Thank you for your order!</p>
+</div>
+</div>  
+
+  <script>
+    // Retrieve customer information and total bill from sessionStorage
+    const customerName = sessionStorage.getItem('customerName');
+    const customerAddress = sessionStorage.getItem('customerAddress');
+    const totalBill = sessionStorage.getItem('totalBill');
+
+    // Display the information on the order_summary.html page
+    if (customerName && customerAddress && totalBill) {
+      document.getElementById('customerName').textContent = customerName;
+      document.getElementById('customerAddress').textContent = customerAddress;
+      document.getElementById('totalBill').textContent = totalBill;
+    } else {
+      // Handle the case where information is missing
+      alert('Order information is missing.');
+    }
+
+
+    // Retrieve selected products from localStorage
+const selectedProducts = JSON.parse(localStorage.getItem('selectedProducts'));
+
+if (selectedProducts) {
+  const productList = document.querySelector('.product-list');
+
+  // Iterate through the selected products and display their details
+  selectedProducts.forEach((product) => {
+    const productItem = document.createElement('div');
+    productItem.classList.add('product-item');
+
+    // Add product image
+    const productImage = document.createElement('img');
+    productImage.classList.add('product-image');
+    productImage.src = product.imgSrc;
+    productItem.appendChild(productImage);
+
+    // Add product details (title and price)
+    const productDetails = document.createElement('div');
+    productDetails.classList.add('product-details');
+    const productTitle = document.createElement('h3');
+    productTitle.textContent = product.title;
+    const productPrice = document.createElement('p');
+    productPrice.textContent = product.price;
+    productDetails.appendChild(productTitle);
+    productDetails.appendChild(productPrice);
+
+    productItem.appendChild(productDetails);
+    productList.appendChild(productItem);
+  });
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Carts with Total Price</title>
+    <style>
+        .cart {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiple Carts with Total Price</h1>
+
+    <!-- Cart sections -->
+    <div class="cart" id="cart1">
+        <h2>Cart 1</h2>
+        <ul id="cart-items1">
+            <!-- Cart items for Cart 1 will be displayed here -->
+        </ul>
+        <p>Total Price: $<span id="cart-total1">0.00</span></p>
+    </div>
+
+    <div class="cart" id="cart2">
+        <h2>Cart 2</h2>
+        <ul id="cart-items2">
+            <!-- Cart items for Cart 2 will be displayed here -->
+        </ul>
+        <p>Total Price: $<span id="cart-total2">0.00</span></p>
+    </div>
+
+    <!-- Item list section -->
+    <h2>Available Items</h2>
+    <ul>
+        <li>
+            <button class="add-to-cart" data-cart="cart1" data-item="Item 1" data-price="10.00">Add Item 1 to Cart 1</button>
+            <button class="add-to-cart" data-cart="cart2" data-item="Item 1" data-price="8.00">Add Item 1 to Cart 2</button>
+        </li>
+        <li>
+            <button class="add-to-cart" data-cart="cart1" data-item="Item 2" data-price="15.00">Add Item 2 to Cart 1</button>
+            <button class="add-to-cart" data-cart="cart2" data-item="Item 2" data-price="12.00">Add Item 2 to Cart 2</button>
+        </li>
+    </ul>
+
+    <script>
+        // JavaScript to add items to carts and calculate total prices
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const cartId = button.getAttribute('data-cart');
+                const item = button.getAttribute('data-item');
+                const price = parseFloat(button.getAttribute('data-price'));
+
+                // Get the cart elements and total price element for the selected cart
+                const cart = document.getElementById(cartId);
+                const cartItemsList = cart.querySelector(`#cart-items${cartId.slice(-1)}`);
+                const cartTotal = cart.querySelector(`#cart-total${cartId.slice(-1)}`);
+
+                // Create a list item for the item and add it to the cart
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item} - $${price.toFixed(2)}`;
+                cartItemsList.appendChild(listItem);
+
+                // Update the total price for the cart
+                const currentTotal = parseFloat(cartTotal.textContent);
+                cartTotal.textContent = (currentTotal + price).toFixed(2);
+            });
+        });
+    </script>
+</body>
+</html>
